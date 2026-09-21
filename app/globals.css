@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b0a0d;
+  --foreground: #d4d4d8;
+  --surface: #131117;
+  --border: rgb(255 255 255 / 0.1);
+  --brand: #e11d48;
+  --brand-dark: #be123c;
+  --accent: #ff8fa3;
+  --cream: #f6efe4;
+  --header: #0f0d12;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-accent: var(--accent);
+  --color-cream: var(--cream);
+  --color-header: var(--header);
+  --font-sans: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.65rem;
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  transition: background-color 0.15s, transform 0.15s, border-color 0.15s;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 10px 28px -10px rgb(225 29 72 / 0.7);
+}
+.btn-primary:hover {
+  background: var(--brand-dark);
+}
+.btn-cream {
+  background: var(--cream);
+  color: #1a1418;
+  box-shadow: 0 10px 28px -12px rgb(246 239 228 / 0.45);
+}
+.btn-cream:hover {
+  background: #fff;
+}
+.btn-outline {
+  border: 1px solid rgb(255 255 255 / 0.3);
+  color: #fff;
+}
+.btn-outline:hover {
+  border-color: #fff;
+  background: rgb(255 255 255 / 0.08);
+}
+
+/* ---------- Brand details ---------- */
+.flag-bar {
+  height: 4px;
+  background: linear-gradient(to bottom, var(--cream) 50%, var(--brand) 50%);
+}
+.text-gradient {
+  padding-bottom: 0.12em;
+  background: linear-gradient(180deg, #ffffff 0%, #e9dccb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-rose-gradient {
+  padding-bottom: 0.1em;
+  background: linear-gradient(90deg, #ffb3c1 0%, #ff5c7c 55%, #ff8fa3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.grid-lines {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 15%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 50% 20%, #000 15%, transparent 70%);
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: currentColor;
+}
+.eyebrow-center::after {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: currentColor;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Keep the WhatsApp button above the mobile sticky order bar */
+@media (max-width: 767px) {
+  body:has(#sticky-cta[data-visible="true"]) .wa-float {
+    bottom: 5.5rem;
+  }
+}
+
+/* ---------- Article typography ---------- */
+.prose-dark {
+  font-size: 1.075rem;
+  line-height: 1.85;
+  color: #cfcfd6;
+}
+.prose-dark > :first-child {
+  margin-top: 0;
+}
+.prose-dark h2 {
+  margin: 2.75rem 0 1rem;
+  scroll-margin-top: 6rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.prose-dark h3 {
+  margin: 2rem 0 0.75rem;
+  scroll-margin-top: 6rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+.prose-dark p {
+  margin: 1.1rem 0;
+}
+.prose-dark a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-dark a:hover {
+  color: #fff;
+}
+.prose-dark strong {
+  color: #fff;
+  font-weight: 700;
+}
+.prose-dark ul,
+.prose-dark ol {
+  margin: 1.1rem 0;
+  padding-left: 1.5rem;
+}
+.prose-dark ul {
+  list-style: disc;
+}
+.prose-dark ol {
+  list-style: decimal;
+}
+.prose-dark li {
+  margin: 0.45rem 0;
+  padding-left: 0.25rem;
+}
+.prose-dark li::marker {
+  color: var(--accent);
+}
+.prose-dark blockquote {
+  margin: 1.75rem 0;
+  border-left: 3px solid var(--brand);
+  border-radius: 0 0.75rem 0.75rem 0;
+  background: rgb(255 255 255 / 0.04);
+  padding: 1rem 1.25rem;
+  color: #e4e4e7;
+}
+.prose-dark code {
+  border-radius: 0.375rem;
+  background: rgb(255 255 255 / 0.08);
+  padding: 0.15rem 0.4rem;
+  font-size: 0.92em;
+  color: #ffd0d8;
+}
+.prose-dark table {
+  display: block;
+  width: 100%;
+  margin: 1.75rem 0;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.prose-dark th,
+.prose-dark td {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  padding: 0.7rem 1rem;
+  text-align: left;
+}
+.prose-dark th {
+  background: rgb(255 255 255 / 0.06);
+  color: #fff;
+}
+.prose-dark hr {
+  margin: 2.5rem 0;
+  border-color: rgb(255 255 255 / 0.1);
+}

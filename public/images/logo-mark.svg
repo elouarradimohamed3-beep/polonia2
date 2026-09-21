@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="512" height="512" role="img" aria-label="Polonia IPTV">
+  <defs><clipPath id="c"><rect x="2" y="2" width="44" height="44" rx="13"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect x="2" y="2" width="44" height="22" fill="#f6efe4"/>
+    <rect x="2" y="24" width="44" height="22" fill="#e11d48"/>
+  </g>
+  <path d="M19 15 L34 24 L19 33 Z" fill="#160f14" stroke="#160f14" stroke-width="2.4" stroke-linejoin="round"/>
+</svg>
